@@ -3,6 +3,7 @@ pipeline {
     stages {
     	stage("Compile") {
         	steps {
+			sh "sdk use java 11.0.9.hs-adpt"
         		sh "./gradlew compileJava"
         	}
         }
