@@ -24,5 +24,8 @@ pipeline {
         		sh "./gradlew jacocoTestCoverageVerification"
         	}
         }
+        stage('Static Code Analysis'){
+        	sh "./gradlew sonarqube -Dsonar.projectKey=spring-boot-gradle-calculator -Dsonar.host.url=http://129.213.112.244:9000 -Dsonar.login=0435adb5cb7f5bfab64ad9caecafd29260e377ea"
+        }
     }
 }
