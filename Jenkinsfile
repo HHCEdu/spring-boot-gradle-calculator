@@ -1,9 +1,10 @@
 pipeline {
-	agent any
+	agent {
+		docker { image 'maven-build-slave-0.1' }
+	}
     stages {
     	stage("Compile") {
         	steps {
-			sh "sdk use java 11.0.9.hs-adpt"
         		sh "./gradlew compileJava"
         	}
         }
