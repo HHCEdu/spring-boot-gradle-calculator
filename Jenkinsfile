@@ -49,6 +49,12 @@ pipeline {
             	sh "sudo docker run -d --rm -p 8090:8090 --name spring-boot-gradle-calculator localhost:5000/spring-boot-gradle-calculator"
 			}
 		}
+		stage("Acceptance test") {
+        	steps {
+				sleep 60
+             	sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+        	}
+		}
     }
     post {
         always {
