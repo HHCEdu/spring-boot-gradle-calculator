@@ -1,6 +1,6 @@
 pipeline {
     agent {
-		docker { image 'gradle-build-slave-0.1' }
+		node { label 'ubuntu-docker' }
 	}
     stages {
     	stage("Compile") {
@@ -24,8 +24,10 @@ pipeline {
         		sh "./gradlew jacocoTestCoverageVerification"
         	}
         }
-        stage('Static Code Analysiss'){
-        	sh "./gradlew sonarqube -Dsonar.projectKey=spring-boot-gradle-calculator -Dsonar.host.url=http://129.213.112.244:9000 -Dsonar.login=0435adb5cb7f5bfab64ad9caecafd29260e377ea"
+        stage('Static Code Analysis'){
+        	steps {
+        		sh "./gradlew sonarqube -Dsonar.projectKey=spring-boot-gradle-calculator -Dsonar.host.url=http://129.213.112.244:9000 -Dsonar.login=0435adb5cb7f5bfab64ad9caecafd29260e377ea"
+        	}
         }
     }
 }
