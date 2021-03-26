@@ -1,7 +1,5 @@
 pipeline {
-	agent {
-		docker { image 'gradle-build-slave-0.1' }
-	}
+	agent any
     stages {
     	stage("Compile") {
         	steps {
