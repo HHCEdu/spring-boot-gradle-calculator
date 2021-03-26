@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/hectorhernandez/Documents/workspace_github/spring-boot-gradle-calculator","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}

@@ -1,5 +1,7 @@
 pipeline {
-    agent { label 'ubuntu-docker' }
+    agent { 
+      node { label 'ubuntu-docker' }
+    }
     stages {
     	stage("Compile") {
         	steps {
