@@ -46,7 +46,7 @@ pipeline {
 		}
 		stage("Deploy to staging") {
         	steps {
-            	sh "sudo docker run -d --rm -p 8090:8090 --name spring-boot-gradle-calculator localhost:5000/spring-boot-gradle-calculator"
+            	sh "sudo docker run -d -p 8090:8090 --name spring-boot-gradle-calculator localhost:5000/spring-boot-gradle-calculator"
 			}
 		}
 		stage("Acceptance test") {
@@ -60,6 +60,7 @@ pipeline {
     post {
         always {
              sh "sudo docker stop spring-boot-gradle-calculator"
+             sh "sudo docker rm spring-boot-gradle-calculator"
     	}
 	}
 }
